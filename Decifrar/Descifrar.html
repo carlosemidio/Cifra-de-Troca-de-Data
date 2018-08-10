@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Descifrar</title>
+<link rel="stylesheet" 
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+  crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="conteudo" style="margin-top: 100px;">
+      <div class="container fundo">
+        <div class="contato">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                  <form class="form-horizontal">
+                  <fieldset>
+                    <!-- Data input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="data">Data:</label>
+                      <div class="col-md-9">
+                        <input id="data" name="email" type="text" class="form-control">
+                      </div>
+                    </div>
+            
+                    <!-- Message body -->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="message"></label>
+                      <div class="col-md-9">
+                        <textarea class="form-control" id="message" name="message" placeholder="Menssagem a ser descifrada..." rows="5"></textarea>
+                      </div>
+                    </div>
+            
+                    <!-- Form actions -->
+                    <div class="form-group">
+                      <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-primary btn-lg btn-enviar" onclick="criptografar()">Descifrar</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                  </form>
+                </div>
+                <div class="col-md-6">
+                  <h1>Menssagem descifrada</h1>
+                  <p class="msg"></p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+  crossorigin="anonymous"></script>
+
+  <script src="Descifrar.js"></script>
+
+  <script>
+	  function criptografar() {
+  		$(".msg").html(descifrar($("#message").val(), $("#data").val()));
+	  }
+  </script>
+
+</body>
+</html>
