@@ -30,10 +30,17 @@ function descifrar(msg, data) {
             index = alfaBeto.indexOf(words[i][j].toUpperCase());
             
             if (index-parseInt(cifra[i][j]) >= 0) {
-                msgCifrada += alfaBeto[index-parseInt(cifra[i][j])];	
+                if(words[i][j].charCodeAt(0) >= 65 && words[i][j].charCodeAt(0) <= 90) {
+                    msgCifrada += alfaBeto[index-parseInt(cifra[i][j])];
+                } else {
+                    msgCifrada += alfaBeto[index-parseInt(cifra[i][j])].toLowerCase();
+                }	
             } else {
-                msgCifrada += alfaBeto[26+(index-parseInt(cifra[i][j]))];
-                console.log(25+(index-parseInt(cifra[i][j])));
+                if(words[i][j].charCodeAt(0) >= 65 && words[i][j].charCodeAt(0) <= 90) {
+                    msgCifrada += alfaBeto[26+(index-parseInt(cifra[i][j]))];
+                } else {
+                    msgCifrada += alfaBeto[26+(index-parseInt(cifra[i][j]))].toLowerCase();
+                }
             }
         }
 

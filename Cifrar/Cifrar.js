@@ -30,9 +30,17 @@ function cifrar(msg, data) {
         for (var j = 0; j < words[i].length; j++) {
             index = alfaBeto.indexOf(words[i][j].toUpperCase());
             if((index+parseInt(cifra[i][j])) <= 25) {
-                msgCifrada += alfaBeto[(index+parseInt(cifra[i][j]))];
+                if(words[i][j].charCodeAt(0) >= 65 && words[i][j].charCodeAt(0) <= 90) {
+                    msgCifrada += alfaBeto[(index+parseInt(cifra[i][j]))];
+                } else {
+                    msgCifrada += alfaBeto[(index+parseInt(cifra[i][j]))].toLowerCase();
+                }
             } else {
-                msgCifrada += alfaBeto[((index+parseInt(cifra[i][j]))%25)-1];
+                if(words[i][j].charCodeAt(0) >= 65 && words[i][j].charCodeAt(0) <= 90) {
+                    msgCifrada += alfaBeto[((index+parseInt(cifra[i][j]))%25)-1];
+                } else {
+                    msgCifrada += alfaBeto[((index+parseInt(cifra[i][j]))%25)-1].toLowerCase();
+                }
             }
         }
 
