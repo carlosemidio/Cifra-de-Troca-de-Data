@@ -10,6 +10,7 @@ function cifrar(msg, data) {
 
     var index =  0;
 
+    // Gera a cifra numérica
     for (var i = 0; i < words.length; i++) {
         for (var j = 0; j < words[i].length; j++) {
             cifra += number[index];
@@ -21,11 +22,15 @@ function cifrar(msg, data) {
             }
         }
 
+        // Separa as palavras com espaço
         cifra += " ";
     }
 
+    // Traforma a String de número em um array de números
     cifra = cifra.split(" ");
 
+    // Itera por cada número da cifra e por cada número da mensagem
+    // e faz as trocas de letras com base nos seus respectivos números
     for (var i = 0; i < words.length; i++) {
         for (var j = 0; j < words[i].length; j++) {
             index = alfaBeto.indexOf(words[i][j].toUpperCase());
@@ -44,8 +49,10 @@ function cifrar(msg, data) {
             }
         }
 
+        // Separa as palavras cifradas com espaço
         msgCifrada += " ";
     }
 
+    // Retorna a mensagem cifrada
     return msgCifrada;
 }
